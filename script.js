@@ -4,14 +4,12 @@ document.getElementById('cadastroForm').addEventListener('submit', function(even
     const nome = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
 
-    const tabelaUsuarios = document.getElementById('tabelaUsuarios').getElementsByTagName('tbody')[0];
-    const novaLinha = tabelaUsuarios.insertRow();
-
-    const celulaNome = novaLinha.insertCell(0);
-    const celulaEmail = novaLinha.insertCell(1);
-
-    celulaNome.textContent = nome;
-    celulaEmail.textContent = email;
+    const listaUsuarios = document.getElementById('listaUsuarios');
+    const novoItem = document.createElement('li');
+    
+    novoItem.textContent = `${nome} - ${email}`;
+    
+    listaUsuarios.appendChild(novoItem);
 
     // Limpa o formulário após o envio
     document.getElementById('cadastroForm').reset();
