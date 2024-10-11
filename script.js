@@ -1,13 +1,11 @@
-const form = document.getElementById('form');
-const tabela = document.getElementById('tabela').getElementsByTagName('tbody')[0];
-
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
+document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita o envio do formulário
 
     const nome = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
 
-    const novaLinha = tabela.insertRow();
+    const tabelaUsuarios = document.getElementById('tabelaUsuarios').getElementsByTagName('tbody')[0];
+    const novaLinha = tabelaUsuarios.insertRow();
 
     const celulaNome = novaLinha.insertCell(0);
     const celulaEmail = novaLinha.insertCell(1);
@@ -15,5 +13,6 @@ form.addEventListener('submit', function(event) {
     celulaNome.textContent = nome;
     celulaEmail.textContent = email;
 
-    form.reset(); // Limpa o formulário
+    // Limpa o formulário após o envio
+    document.getElementById('cadastroForm').reset();
 });
